@@ -1,0 +1,98 @@
+.clean-org-map__canvas {
+	position: relative;
+	width: 100%;
+	background: #e9eef2;
+	z-index: 0; /* панели Leaflet (z-index до 1000) не вылезают поверх шапки сайта */
+}
+
+.clean-org-map__fallback {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 16px;
+	text-align: center;
+	color: #333;
+}
+
+.clean-org-map__buttons {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin-top: 12px;
+}
+
+.clean-org-map__button {
+	display: inline-block;
+	padding: 10px 16px;
+	border: 1px solid currentColor;
+	border-radius: 4px;
+	text-decoration: none;
+}
+
+.clean-org-map__marker {
+	display: block;
+	cursor: pointer;
+}
+
+.clean-org-map__popup-image {
+	display: block;
+	width: 100%;
+	height: 140px;
+	margin-bottom: 8px;
+	border-radius: 6px;
+	object-fit: cover;
+}
+
+/* Подсказка — шрифтом сайта, а не Helvetica из стилей MapLibre и Leaflet. */
+.clean-org-map .maplibregl-map,
+.clean-org-map .leaflet-container {
+	font-family: inherit;
+}
+
+/* Карточка в подсказке. Цвет ссылок — переменная: сайт задаёт свой, например
+   .clean-org-map { --clean-org-map-accent: #307c32; } */
+.clean-org-map__popup {
+	font-size: 14px;
+	line-height: 1.4;
+	color: #333;
+}
+
+.clean-org-map__popup strong,
+.clean-org-map__popup div,
+.clean-org-map__popup a {
+	display: block;
+	margin-bottom: 4px;
+}
+
+.clean-org-map__popup strong {
+	font-size: 16px;
+	font-weight: 700;
+}
+
+.clean-org-map__popup div {
+	color: #666;
+}
+
+.clean-org-map__popup a {
+	color: var(--clean-org-map-accent, #1a5fb4);
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.clean-org-map__popup a:hover {
+	text-decoration: underline;
+}
+
+/* Отделяем ссылки от описания. */
+.clean-org-map__popup div + a,
+.clean-org-map__popup strong + a {
+	margin-top: 8px;
+	padding-top: 8px;
+	border-top: 1px solid #e5e5e5;
+}
+
+.clean-org-map__popup a:last-child {
+	margin-bottom: 0;
+}
